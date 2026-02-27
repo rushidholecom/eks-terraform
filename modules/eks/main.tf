@@ -66,7 +66,7 @@ resource "aws_eks_cluster" "my_cluster" {
 }
 
 resource "aws_iam_role" "node_role1" {
-  name = "node_role"
+  name = "node_role1"
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
