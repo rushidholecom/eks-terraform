@@ -42,10 +42,6 @@ data "aws_subnets" "subnet" {
 resource "aws_eks_cluster" "my_cluster" {
   name = "my_cluster"
 
-  access_config {
-    authentication_mode = "API"
-  }
-
   role_arn = aws_iam_role.cluster_role1.arn
   version  = "1.31"
 
