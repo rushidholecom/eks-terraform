@@ -1,4 +1,4 @@
-resource "aws_iam_role" "cluster_role" {
+resource "aws_iam_role" "cluster_role1" {
   name = "cluster_role"
 
   # Terraform's "jsonencode" function converts a
@@ -65,7 +65,7 @@ resource "aws_eks_cluster" "my_cluster" {
   }
 }
 
-resource "aws_iam_role" "node_role" {
+resource "aws_iam_role" "node_role1" {
   name = "node_role"
 
   # Terraform's "jsonencode" function converts a
