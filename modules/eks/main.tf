@@ -87,26 +87,26 @@ resource "aws_iam_role" "node_role1" {
 
 resource "aws_iam_policy_attachment" "node_policy_attachment" {
   name = "cluster_policy_attachment"
-  roles = [aws_iam_role.node_role.name]
+  roles = [aws_iam_role.node_role1.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
 
 resource "aws_iam_policy_attachment" "node_policy_attachment_wkn" {
   name = "cluster_policy_attachment"
-  roles = [aws_iam_role.node_role.name]
+  roles = [aws_iam_role.node_role1.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
 }
 
 resource "aws_iam_policy_attachment" "node_policy_attachment_ec2" {
   name = "cluster_policy_attachment"
-  roles = [aws_iam_role.node_role.name]
+  roles = [aws_iam_role.node_role1.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"
 }
 
 resource "aws_eks_node_group" "my_node_group" {
   cluster_name    = aws_eks_cluster.my_cluster.name
   node_group_name = "my_node_group"
-  node_role_arn   = aws_iam_role.node_role.arn
+  node_role_arn   = aws_iam_role.node_role1.arn
   subnet_ids      = data.aws_subnets.subnet.ids
   instance_types = ["t3.small"]
 
