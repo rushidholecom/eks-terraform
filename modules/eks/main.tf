@@ -24,7 +24,7 @@ resource "aws_iam_role" "cluster_role1" {
 
 resource "aws_iam_policy_attachment" "cluster_policy_attachment" {
   name = "cluster_policy_attachment"
-  roles = [aws_iam_role.cluster_role.name]
+  roles = [aws_iam_role.cluster_role1.name]
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
@@ -46,7 +46,7 @@ resource "aws_eks_cluster" "my_cluster" {
     authentication_mode = "API"
   }
 
-  role_arn = aws_iam_role.cluster_role.arn
+  role_arn = aws_iam_role.cluster_role1.arn
   version  = "1.31"
 
   vpc_config {
